@@ -1,9 +1,11 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import "./Product.css";
 import { useStateValue } from "./StateProvider";
 
 function Product({ id, title, image, price, rating }) {
   const [{ basket }, dispatch] = useStateValue();
+  const history=useHistory()
 
   const addToBasket = () => {
     // dispatch the item into the data layer
@@ -16,30 +18,39 @@ function Product({ id, title, image, price, rating }) {
         price: price,
         rating: rating,
       },
-    });
+    }).then(()=>{
+      history.push('/')
+    })
+   
   };
 
   return (
-    <div className="product">
+   <div className="container">
+     <div className="product">
       <div className="product__info">
         <p>{title}</p>
-        <p className="product__price">
-          <small>$</small>
+        </div>
+        <div className="product__price">
+         <span className="price">
+         <small >$</small>
           <strong>{price}</strong>
-        </p>
+         </span>
+        </div>
+        
         <div className="product__rating">
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <p>🌟</p>
+              <div>🌟</div>
             ))}
         </div>
-      </div>
+      
 
       <img src={image} alt="" />
 
       <button onClick={addToBasket}>Add to Basket</button>
     </div>
+   </div>
   );
 }
 
