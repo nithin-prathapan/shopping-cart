@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./Product.css";
 import { useStateValue } from "./StateProvider";
 
@@ -19,7 +19,7 @@ function Product({ id, title, image, price, rating }) {
         rating: rating,
       },
     }).then(()=>{
-      history.push('/')
+      
     })
    
   };
@@ -47,8 +47,10 @@ function Product({ id, title, image, price, rating }) {
       
 
       <img src={image} alt="" />
+      <Link to ='/checkout'>
 
       <button onClick={addToBasket}>Add to Basket</button>
+      </Link>
     </div>
    </div>
   );
