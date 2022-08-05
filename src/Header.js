@@ -1,21 +1,16 @@
 import React from "react";
-import "./Header.css";
-
-
-import {Link} from 'react-router-dom'
-
-
+import "./Header.css"
 function Header() {
   
 
   return (
     <div className="header">
-      <Link to="/">
+      <a href="/">
         <img
           className="header__logo"
           src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
         />
-      </Link>
+      </a>
 
       <div className="header__search">
         <input className="header__searchInput" type="text" />
@@ -23,19 +18,19 @@ function Header() {
       </div>
 
       <div className="header__nav">
-        <Link to={'/login'}>
+        <a href={'/login'}>
           <div  className="header__option">
             <span className="header__optionLineOne">Hello</span>
             <span className="header__optionLineTwo"></span>
           </div>
-        </Link>
+        </a>
 
-        <Link to='/orders'>
+        <a href='/orders'>
           <div className="header__option">
             <span className="header__optionLineOne">Returns</span>
-            <span className="header__optionLineTwo">& Orders</span>
+            <span className="header__optionLineTwo">Orders</span>
           </div>
-        </Link>
+        </a>
         
 
         <div className="header__option">
@@ -43,14 +38,14 @@ function Header() {
           <span className="header__optionLineTwo">Prime</span>
         </div>
 
-        <Link to="/checkout">
+        <a href="/checkout">
           <div className="header__optionBasket">
         
             <span className="header__optionLineTwo header__basketCount">
             
             </span>
           </div>
-        </Link>
+        </a>
       </div>
     </div>
   );
